@@ -272,6 +272,7 @@ ul {
   border-radius: 0px 0px 4px 4px;
   width: calc((100% - 90px) / 4);
   background-color: var(--background-primary);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .team-member-footer {
@@ -376,6 +377,14 @@ ul {
 
 .portfolio-card {
   width: calc((100% - 60px) / 3);
+}
+
+
+.portfolio-card-link:focus,
+.portfolio-card-link:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+    0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .portfolio-card-footer {
