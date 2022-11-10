@@ -9,6 +9,7 @@
 /* Hero Button Active #188CE8 */
 /* Header Border #ECECEC */
 /* Portfolio Card Border #EEEEEE */
+/* Team Social Icons #AFB1B8 */
 
 :root {
   --background-primary: #ffffff;
@@ -22,6 +23,7 @@
   --hero-button-active: #188ce8;
   --header-border: #ECECEC;
   --portfolio-card-border: #EEEEEE;
+  --team-social: #AFB1B8;
 }
 
 body {
@@ -276,8 +278,7 @@ ul {
 }
 
 .team-member-footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 32px;
   text-align: center;
 }
 
@@ -291,9 +292,46 @@ ul {
 }
 
 .team-member-position {
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: calc(19 / 16);
   letter-spacing: 0.03em;
+}
+
+.team-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-basis: calc((100% - 30px) / 4);
+}
+
+.team-social-item {
+  width: 44px;
+  height: 44px;
+}
+
+.team-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--background-primary);
+}
+
+.team-social-icon {
+  fill: var(--team-social);
+}
+
+.team-social-link:hover,
+.team-social-link:focus {
+  background-color: var(--accent);
+}
+
+.team-social-link:hover .team-social-icon,
+.team-social-link:focus .team-social-icon {
+  fill: var(--background-primary);
 }
 
 /* -----------Підвал----------- */
@@ -379,6 +417,9 @@ ul {
   width: calc((100% - 60px) / 3);
 }
 
+.portfolio-card-link {
+  display: block;
+}
 
 .portfolio-card-link:focus,
 .portfolio-card-link:hover {
