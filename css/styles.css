@@ -10,6 +10,7 @@
 /* Header Border #ECECEC */
 /* Portfolio Card Border #EEEEEE */
 /* Team Social Icons #AFB1B8 */
+/* Footer Social Links Background rgba(255, 255, 255, 0.1); */
 
 :root {
   --background-primary: #ffffff;
@@ -24,6 +25,7 @@
   --header-border: #ECECEC;
   --portfolio-card-border: #EEEEEE;
   --team-social: #AFB1B8;
+  --footer-social: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -336,13 +338,16 @@ ul {
 
 /* -----------Підвал----------- */
 
-.footer {
-  background-color: var(--background-secondary);
+.footer .container {
+  display: flex;
+  gap: 70px;
+  align-items: baseline;
 }
 
 .footer {
   padding-top: 60px;
   padding-bottom: 60px;
+  background-color: var(--background-secondary);
 }
 
 .footer-logo {
@@ -370,6 +375,41 @@ ul {
 .address {
   color: var(--background-primary);
 }
+
+.futer-social {}
+
+.footer-social-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(16 /14);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.footer-social-list {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social-item {
+  width: 44px;
+  height: 44px;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--footer-social);
+}
+
+.footer-social-icon {}
 
 /* -----------ПОРТФОЛІО----------- */
 
