@@ -11,6 +11,16 @@
 /* Portfolio Card Border #EEEEEE */
 /* Team Social Icons #AFB1B8 */
 /* Footer Social Links Background rgba(255, 255, 255, 0.1); */
+/* Hero Background Overlay rgba(47, 48, 58, 0.4); */
+/* Team Card Shadow 0px 1px 3px rgba(0, 0, 0, 0.12),
+                    0px 1px 1px rgba(0, 0, 0, 0.14),
+                    0px 2px 1px rgba(0, 0, 0, 0.2); */
+/* Filter Button Shadow 0px 3px 1px rgba(0, 0, 0, 0.1),
+                        0px 1px 2px rgba(0, 0, 0, 0.08),
+                        0px 2px 2px rgba(0, 0, 0, 0.12); */
+/* Portfolio Card Shadow  0px 1px 1px rgba(0, 0, 0, 0.12),
+                          0px 4px 4px rgba(0, 0, 0, 0.06),
+                          1px 4px 6px rgba(0, 0, 0, 0.16); */
 
 :root {
   --background-primary: #ffffff;
@@ -26,6 +36,16 @@
   --portfolio-card-border: #EEEEEE;
   --team-social: #AFB1B8;
   --footer-social: rgba(255, 255, 255, 0.1);
+  --hero-overlay: rgba(47, 48, 58, 0.4);
+  --team-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  --filter-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+  --portfolio-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+    0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 body {
@@ -50,12 +70,17 @@ ul {
   padding: 0;
 }
 
-.title-hidden {
+.visually-hidden {
   position: absolute;
-  clip: rect(0 0 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .section-title {
@@ -70,11 +95,6 @@ ul {
 .logo-link {
   font-style: normal;
   text-decoration: none;
-}
-
-.hero,
-.footer {
-  background-color: var(--background-secondary);
 }
 
 .container {
@@ -155,7 +175,9 @@ ul {
 .logo-web,
 .current,
 .link:hover,
-.link:focus {
+.link:focus,
+.header-contact:hover .header-contact-icon,
+.header-contact:focus .header-contact-icon {
   color: var(--accent);
 }
 
@@ -164,7 +186,14 @@ ul {
 }
 
 .header-contact {
+  display: flex;
+  align-items: center;
   color: inherit;
+}
+
+.header-contact-icon {
+  margin-right: 10px;
+  fill: currentColor;
 }
 
 /* -----------Hero----------- */
@@ -209,6 +238,17 @@ ul {
   background-color: var(--hero-button-active);
 }
 
+.hero {
+  max-width: 1600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+    url(../images/hero-background.jpg);
+  background-color: var(--background-secondary);
+  background-position: center;
+}
+
 /* -----------Переваги----------- */
 
 .advantages-list {
@@ -220,6 +260,19 @@ ul {
 .advantages-item {
   width: 270px;
 }
+
+.advantages-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 120px;
+  background-color: var(--background-button-and-team);
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.advantages-icon {}
 
 .advantages-title {
   margin-bottom: 10px;
@@ -276,7 +329,7 @@ ul {
   border-radius: 0px 0px 4px 4px;
   width: calc((100% - 90px) / 4);
   background-color: var(--background-primary);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--team-shadow)
 }
 
 .team-member-footer {
@@ -320,20 +373,22 @@ ul {
   height: 100%;
   border-radius: 50%;
   background-color: var(--background-primary);
+  color: var(--team-social);
 }
 
 .team-social-icon {
-  fill: var(--team-social);
+  fill: currentColor;
 }
 
 .team-social-link:hover,
 .team-social-link:focus {
   background-color: var(--accent);
+  color: var(--background-primary);
 }
 
 .team-social-link:hover .team-social-icon,
 .team-social-link:focus .team-social-icon {
-  fill: var(--background-primary);
+  fill: currentColor;
 }
 
 /* -----------Підвал----------- */
@@ -376,8 +431,6 @@ ul {
   color: var(--background-primary);
 }
 
-.futer-social {}
-
 .footer-social-title {
   margin-bottom: 20px;
   font-weight: 700;
@@ -407,9 +460,17 @@ ul {
   height: 100%;
   border-radius: 50%;
   background-color: var(--footer-social);
+  color: var(--background-primary);
 }
 
-.footer-social-icon {}
+.footer-social-icon {
+  fill: currentColor;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+  background-color: var(--accent);
+}
 
 /* -----------ПОРТФОЛІО----------- */
 
@@ -442,6 +503,7 @@ ul {
 .filter-button:focus {
   background-color: var(--accent);
   color: var(--background-primary);
+  box-shadow: var(--filter-shadow)
 }
 
 /* -----------Картки портфоліо----------- */
@@ -463,9 +525,7 @@ ul {
 
 .portfolio-card-link:focus,
 .portfolio-card-link:hover {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-    0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: var(--portfolio-shadow)
 }
 
 .portfolio-card-footer {
